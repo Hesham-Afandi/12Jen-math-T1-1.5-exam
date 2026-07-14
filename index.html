@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ Grade 12 General Math - Lesson 1-5: Parent Functions and Transformations (12Jen-math-T1-1.5-exam)</title>
+    <title>🧮 Parent Functions & Transformations Exam</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght=400;600;700;900&family=Inter:wght=400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Cairo', sans-serif; }
         body.en-mode { font-family: 'Inter', sans-serif; }
@@ -25,7 +25,7 @@
             position: fixed; top: 16px; left: 16px; z-index: 100;
             background: white; padding: 6px; border-radius: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: flex; gap: 4px;
-            border: 2px solid #0d9488;
+            border: 2px solid #e11d48;
         }
         [dir="ltr"] .lang-switch { left: auto; right: 16px; }
         .lang-btn {
@@ -33,8 +33,8 @@
             transition: all 0.3s; border: none; font-size: 0.875rem;
             background: transparent; color: #6b7280;
         }
-        .lang-btn.active { background: #0d9488; color: white; box-shadow: 0 2px 6px rgba(13,148,136,0.4); }
-        .lang-btn:hover:not(.active) { background: #f0fdfa; color: #0d9488; }
+        .lang-btn.active { background: #e11d48; color: white; box-shadow: 0 2px 6px rgba(225,29,72,0.4); }
+        .lang-btn:hover:not(.active) { background: #fff1f2; color: #e11d48; }
         .shuffle-badge {
             display: inline-block;
             background: linear-gradient(135deg, #f59e0b, #ef4444);
@@ -47,7 +47,7 @@
             animation: pulse 2s infinite;
         }
     </style>
-<script src="/_aistudio-iframe.js"></script></head>
+</head>
 <body class="bg-gray-50 text-gray-800 p-4 md:p-8 min-h-screen">
 
     <div class="lang-switch no-print">
@@ -56,24 +56,24 @@
     </div>
 
     <div id="timer-container" class="max-w-4xl mx-auto mb-4 text-center no-print">
-        <div class="bg-white p-4 rounded-xl shadow-md inline-block border-2 border-teal-100">
+        <div class="bg-white p-4 rounded-xl shadow-md inline-block border-2 border-rose-100">
             <span class="text-gray-600 ml-2" data-ar="⏱️ الوقت المتبقي:" data-en="⏱️ Time Remaining:">⏱️ الوقت المتبقي:</span>
-            <span id="timer" class="text-2xl font-bold text-teal-600 font-mono">60:00</span>
+            <span id="timer" class="text-2xl font-bold text-rose-600 font-mono">60:00</span>
             <span class="shuffle-badge" data-ar="🔀 أسئلة عشوائية" data-en="🔀 Random Questions">🔀 أسئلة عشوائية</span>
         </div>
     </div>
 
     <div class="max-w-4xl mx-auto mb-6 flex flex-wrap gap-3 justify-center no-print">
-        <button onclick="toggleAnswers()" class="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="👁️ إظهار / إخفاء الإجابات" data-en="👁️ Show / Hide Answers">👁️ إظهار / إخفاء الإجابات</button>
+        <button onclick="toggleAnswers()" class="bg-rose-600 hover:bg-rose-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="👁️ إظهار / إخفاء الإجابات" data-en="👁️ Show / Hide Answers">👁️ إظهار / إخفاء الإجابات</button>
         <button onclick="window.print()" class="bg-gray-800 hover:bg-gray-900 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🖨️ طباعة / PDF" data-en="🖨️ Print / PDF">🖨️ طباعة / PDF</button>
-        <button onclick="reshuffleExam()" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🔀 إعادة خلط الأسئلة" data-en="🔀 Reshuffle Questions">🔀 إعادة خلط الأسئلة</button>
+        <button onclick="reshuffleExam()" class="bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white px-5 py-2 rounded-lg font-medium transition shadow cursor-pointer" data-ar="🔀 إعادة خلط الأسئلة" data-en="🔀 Reshuffle Questions">🔀 إعادة خلط الأسئلة</button>
     </div>
 
-    <header class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md mb-8 border-r-4 border-teal-600">
+    <header class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md mb-8 border-r-4 border-rose-600">
         <div class="text-center">
-            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-ar="⚡ رياضيات الصف الثاني عشر عام" data-en="⚡ Grade 12 General Mathematics">⚡ رياضيات الصف الثاني عشر عام</h1>
-            <h2 class="text-lg text-teal-600 font-semibold" data-ar="الدرس 1-5: الدوال الأصلية والتحويلات (الفصل الدراسي الأول)" data-en="Lesson 1-5: Parent Functions and Transformations (Term 1)">الدرس 1-5: الدوال الأصلية والتحويلات (الفصل الدراسي الأول)</h2>
-            <p class="text-sm text-gray-600 mt-2" data-ar="اختبار شامل يغطي الدوال الأم الثمانية والتحويلات الهندسية من إزاحات وانعكاسات وتمددات أفقية ورأسية." data-en="Lesson 1-5: Parent Functions and Transformations complete interactive test aligned with Ministry syllabus.">اختبار شامل يغطي الدوال الأم الثمانية والتحويلات الهندسية من إزاحات وانعكاسات وتمددات أفقية ورأسية.</p>
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-ar="🧮 امتحان الدوال الأصلية والتحويلات" data-en="🧮 Parent Functions & Transformations Exam">🧮 امتحان الدوال الأصلية والتحويلات</h1>
+            <h2 class="text-lg text-rose-600 font-semibold" data-ar="Parent Functions & Transformations" data-en="Parent Functions & Transformations">Parent Functions & Transformations</h2>
+            <p class="text-sm text-gray-600 mt-2" data-ar="أسئلة تغطي: الدوال الأصلية وخصائصها، الإزاحة الأفقية والرأسية، الانعكاس وتغيير الأبعاد، كتابة معادلات التحويلات والدوال المتعددة التعريف، والتطبيقات الحياتية وتحويلات القيمة المطلقة" data-en="Covers: Parent Functions & Their Properties, Horizontal & Vertical Translations, Reflections & Dilations, Writing Transformation Equations & Piecewise Functions, and Real-Life Applications & Absolute Value Transformations">أسئلة تغطي: الدوال الأصلية وخصائصها، الإزاحة الأفقية والرأسية، الانعكاس وتغيير الأبعاد، كتابة معادلات التحويلات والدوال المتعددة التعريف، والتطبيقات الحياتية وتحويلات القيمة المطلقة</p>
             <p class="text-xs text-orange-600 mt-2 font-semibold" data-ar="⚠️ ملاحظة: يتم خلط ترتيب الأسئلة والخيارات تلقائياً مع كل تحديث للصفحة" data-en="⚠️ Note: Questions and options are randomly shuffled on every page refresh">⚠️ ملاحظة: يتم خلط ترتيب الأسئلة والخيارات تلقائياً مع كل تحديث للصفحة</p>
         </div>
         <div class="mt-4 flex flex-wrap justify-center gap-4 text-sm text-gray-600">
@@ -81,7 +81,7 @@
             <span><span data-ar="👤 الاسم:" data-en="👤 Name:">👤 الاسم:</span> <input type="text" id="studentName" class="border-b border-gray-400 bg-transparent w-32 text-center" placeholder="Enter name"></span>
             <span><span data-ar="🏫 الشعبة:" data-en="🏫 Class:">🏫 الشعبة:</span> <input type="text" id="studentClass" class="border-b border-gray-400 bg-transparent w-28 text-center" placeholder="Class"></span>
             <span><span data-ar="⏱️ المدة: 60 دقيقة" data-en="⏱️ Duration: 60 min">⏱️ المدة: 60 دقيقة</span></span>
-            <span><span data-ar="📊 המجموع: 100 درجة" data-en="📊 Total: 100 pts">📊 المجموع: 100 درجة</span></span>
+            <span><span data-ar="📊 المجموع: 100 درجة" data-en="📊 Total: 100 pts">📊 المجموع: 100 درجة</span></span>
         </div>
     </header>
 
@@ -94,7 +94,7 @@
     <div id="results-panel" class="max-w-4xl mx-auto mt-8 bg-white p-8 rounded-2xl shadow-2xl border-t-4 border-emerald-500 hidden no-print">
         <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center" data-ar="📊 نتائج الامتحان" data-en="📊 Exam Results">📊 نتائج الامتحان</h2>
         <div class="grid md:grid-cols-3 gap-4 mb-6">
-            <div class="bg-blue-50 p-4 rounded-xl text-center"><p data-ar="اسم الطالب" data-en="Student Name">اسم الطالب</p><p id="res-name" class="font-bold text-xl text-teal-700">-</p></div>
+            <div class="bg-blue-50 p-4 rounded-xl text-center"><p data-ar="اسم الطالب" data-en="Student Name">اسم الطالب</p><p id="res-name" class="font-bold text-xl text-rose-700">-</p></div>
             <div class="bg-purple-50 p-4 rounded-xl text-center"><p data-ar="التاريخ" data-en="Date">التاريخ</p><p id="res-date" class="font-bold text-xl text-purple-700">-</p></div>
             <div class="bg-emerald-50 p-4 rounded-xl text-center"><p data-ar="المجموع" data-en="Score">المجموع</p><p id="res-total" class="font-bold text-3xl text-emerald-600">0 / 100</p></div>
         </div>
@@ -107,29 +107,29 @@
             <h3 class="font-bold text-lg mb-4 text-gray-800" data-ar="📈 تفصيل الأداء حسب القسم:" data-en="📈 Performance Breakdown:">📈 تفصيل الأداء حسب القسم:</h3>
             <div class="space-y-3">
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات" data-en="Part 1: Basic Concepts, Rules, and Definitions">الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات</span>
-                    <span id="sec1-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="الدوال الأصلية وخصائصها" data-en="Parent Functions & Their Properties">الدوال الأصلية وخصائصها</span>
+                    <span id="sec1-score" class="font-bold text-rose-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة" data-en="Part 2: Calculations and Exact Numerical Solutions">الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة</span>
-                    <span id="sec2-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="الإزاحة الأفقية والرأسية" data-en="Horizontal & Vertical Translations">الإزاحة الأفقية والرأسية</span>
+                    <span id="sec2-score" class="font-bold text-rose-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل" data-en="Part 3: Advanced Skills, Applications, and Problems">الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل</span>
-                    <span id="sec3-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="الانعكاس وتغيير الأبعاد" data-en="Reflections & Dilations">الانعكاس وتغيير الأبعاد</span>
+                    <span id="sec3-score" class="font-bold text-rose-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية" data-en="Part 4: Mathematical Modeling, Graphing, and Practical Problems">الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية</span>
-                    <span id="sec4-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="كتابة معادلات التحويلات والدوال المتعددة التعريف" data-en="Writing Transformation Equations & Piecewise Functions">كتابة معادلات التحويلات والدوال المتعددة التعريف</span>
+                    <span id="sec4-score" class="font-bold text-rose-600">0/4</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-gray-700" data-ar="الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي" data-en="Part 5: Higher-Order Thinking, Analysis, and Logical Connections">الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي</span>
-                    <span id="sec5-score" class="font-bold text-teal-600">0/4</span>
+                    <span class="text-gray-700" data-ar="التطبيقات الحياتية وتحويلات القيمة المطلقة" data-en="Real-Life Applications & Absolute Value Transformations">التطبيقات الحياتية وتحويلات القيمة المطلقة</span>
+                    <span id="sec5-score" class="font-bold text-rose-600">0/4</span>
                 </div>
             </div>
         </div>
         <div class="text-center mb-6">
-            <button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white text-lg px-8 py-3 rounded-xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer" data-ar="📧 إرسال النتائج للمعلم" data-en="📧 Send Results to Teacher">📧 إرسال النتائج للمعلم</button>
+            <button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white text-lg px-8 py-3 rounded-xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer" data-ar="📧 إرسال النتائج للمعلم" data-en="📧 Send Results to Teacher">📧 إرسال النتائج للمعلم</button>
             <p id="emailStatus" class="text-sm mt-2 text-center font-medium"></p>
         </div>
         <div class="flex gap-3 justify-center">
@@ -138,10 +138,11 @@
     </div>
 
     <footer class="max-w-4xl mx-auto mt-10 mb-8 text-center text-gray-500 text-sm no-print">
-        © <span data-ar="رياضيات الصف 12 عام | الدرس 1-5: الدوال الأصلية والتحويلات" data-en="Grade 12 General Math | Lesson 1-5: Parent Functions and Transformations">رياضيات الصف 12 عام | الدرس 1-5: الدوال الأصلية والتحويلات</span> | Platform 4U Education
+        © <span data-ar="Parent Functions & Transformations" data-en="Parent Functions & Transformations">Parent Functions & Transformations</span> | Mr. Mohammed Hesham
     </footer>
 
 <script>
+// ==================== EmailJS Settings ====================
 const PUBLIC_KEY = "Rb3Lq8tXaFmc5YHUH";
 const SERVICE_ID = "service_w15m64i";
 const TEMPLATE_ID = "template_5b0u2tq";
@@ -150,627 +151,254 @@ const TARGET_EMAIL = "mohammedhesham872@gmail.com";
 emailjs.init(PUBLIC_KEY);
 
 const originalExamData = {
-    "title_ar": "الدرس 1-5: الدوال الأصلية والتحويلات",
-    "title_en": "Lesson 1-5: Parent Functions and Transformations",
-    "desc_ar": "اختبار شامل يغطي الدوال الأم الثمانية والتحويلات الهندسية من إزاحات وانعكاسات وتمددات أفقية ورأسية.",
-    "sections": [
+    sections: [
         {
-            "title": {
-                "ar": "🔹 الجزء الأول: التعرف على الدوال الأم الأصلية وخصائصها",
-                "en": "🔹 Part 1: التعرف على الدوال الأم الأصلية وخصائصها"
-            },
-            "questions": [
+            id: 'sec1',
+            title: { ar: '🔹 الجزء الأول: الدوال الأصلية وخصائصها', en: '🔹 Part 1: Parent Functions & Their Properties' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "ما المفهوم الأساسي المرتبط بـ التعرف على الدوال الأم الأصلية وخصائصها؟",
-                        "en": "What is the basic concept associated with التعرف على الدوال الأم الأصلية وخصائصها?"
-                    },
-                    "options": [
-                        {
-                            "ar": "العلاقة الرياضية الصحيحة والتمثيل الإحداثي الدقيق",
-                            "en": "The correct mathematical relation and accurate coordinate mapping"
-                        },
-                        {
-                            "ar": "حساب المعدلات الخطية للبيانات المستمرة فقط",
-                            "en": "Calculating linear rates for continuous data only"
-                        },
-                        {
-                            "ar": "تحليل القيم المطلقة واستبعاد الحلول التخيلية",
-                            "en": "Analyzing absolute values and excluding imaginary solutions"
-                        },
-                        {
-                            "ar": "دراسة سلوك طرفي الدالة عند اللانهاية دائماً",
-                            "en": "Studying the end behavior of a function at infinity always"
-                        }
+                    q: { ar: 'ما تعريف "الدالة الأصلية" لعائلة من الدوال؟', en: 'What is the definition of a "parent function" for a family of functions?' },
+                    options: [
+                        { ar: 'هي أبسط دالة في العائلة، والتي يتم تحويلها لإنشاء أعضاء آخرين في هذه العائلة', en: 'It is the simplest function in the family, which is transformed to create other members of that family' },
+                        { ar: 'هي أعقد دالة موجودة في العائلة', en: 'It is the most complex function existing in the family' },
+                        { ar: 'هي الدالة التي ليس لها أي تمثيل بياني', en: 'It is the function that has no graph at all' },
+                        { ar: 'هي دالة تساوي قيمتها صفراً دائماً', en: 'It is a function whose value is always zero' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "المفهوم الأساسي يرتكز دائماً على إدراك القوانين الأساسية للعلاقات والدوال.",
-                        "en": "The basic concept always relies on understanding the core laws of relations and functions."
-                    }
+                    correct: 0,
+                    answer: { ar: 'الدالة الأصلية هي أبسط دالة في عائلة الدوال، وهي الدالة التي تم تحويلها لإنشاء أعضاء آخرين في عائلة الدوال', en: 'The parent function is the simplest function in a family of functions; it is the function that is transformed to create other members of the family' }
                 },
                 {
-                    "q": {
-                        "ar": "أي مما يلي يعبر بدقة عن إحدى القواعد الأساسية لـ التعرف على الدوال الأم الأصلية وخصائصها؟",
-                        "en": "Which of the following accurately expresses a basic rule for التعرف على الدوال الأم الأصلية وخصائصها?"
-                    },
-                    "options": [
-                        {
-                            "ar": "القاعدة الأساسية التي تضمن الحصول على مخرجات وحيدة لكل مدخل حقيقي",
-                            "en": "The basic rule that ensures obtaining a unique output for each real input"
-                        },
-                        {
-                            "ar": "القاعدة التي تنفي تماماً ارتباط المتغيرات ذات الأسس الفردية",
-                            "en": "The rule that completely negates mapping variables with odd exponents"
-                        },
-                        {
-                            "ar": "القاعدة التي تقيد المجال للأعداد النسبية فقط",
-                            "en": "The rule that restricts the domain to rational numbers only"
-                        },
-                        {
-                            "ar": "قاعدة المساواة الصفرية لجميع المقادير الجبرية",
-                            "en": "The zero-equality rule for all algebraic expressions"
-                        }
+                    q: { ar: 'ما شكل التمثيل البياني للدالة الثابتة f(x)=c؟', en: 'What is the shape of the graph of the constant function f(x)=c?' },
+                    options: [
+                        { ar: 'خط أفقي', en: 'A horizontal line' },
+                        { ar: 'خط رأسي', en: 'A vertical line' },
+                        { ar: 'منحنى على شكل حرف U', en: 'A U-shaped curve' },
+                        { ar: 'خط مستقيم يمر بنقطة الأصل بميل يساوي 1', en: 'A straight line through the origin with slope 1' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "تضمن القواعد الرياضية سلامة العلاقات وصحة المخرجات من مدخلاتها.",
-                        "en": "Mathematical rules ensure the soundness of relations and validity of outputs from inputs."
-                    }
+                    correct: 0,
+                    answer: { ar: 'الدالة الثابتة تكون بالصورة f(x)=c، حيث c أي عدد حقيقي، وتمثيلها البياني خط أفقي', en: 'The constant function has the form f(x)=c, where c is any real number, and its graph is a horizontal line' }
                 },
                 {
-                    "q": {
-                        "ar": "لماذا تعد دراسة التعرف على الدوال الأم الأصلية وخصائصها خطوة ضرورية لحل المشكلات المتقدمة؟",
-                        "en": "Why is studying التعرف على الدوال الأم الأصلية وخصائصها a necessary step for solving advanced problems?"
-                    },
-                    "options": [
-                        {
-                            "ar": "لأنها تضع الأساس المتين لفهم النماذج المعقدة وبناء الحلول البرمجية لها",
-                            "en": "Because it establishes the solid foundation for understanding complex models and coding their solutions"
-                        },
-                        {
-                            "ar": "لأنها تلغي الحاجة لاستخدام الحاسبات البيانية نهائياً",
-                            "en": "Because it completely eliminates the need for graphing calculators"
-                        },
-                        {
-                            "ar": "لأنها تعطي حلولاً تقريبية سريعة دون الحاجة للبرهان الجبري",
-                            "en": "Because it gives quick approximate solutions without algebraic proofs"
-                        },
-                        {
-                            "ar": "لأنها تفترض دائماً تماثل جميع الدوال الرياضية حركياً",
-                            "en": "Because it always assumes kinematics symmetry of all mathematical functions"
-                        }
+                    q: { ar: 'ما الذي يميز الدالة المحايدة f(x)=x؟', en: 'What distinguishes the identity function f(x)=x?' },
+                    options: [
+                        { ar: 'تمر بجميع النقاط ذات الإحداثيات (a,a)', en: 'It passes through all points with coordinates (a,a)' },
+                        { ar: 'تمثيلها البياني منحنى على شكل حرف U', en: 'Its graph is a U-shaped curve' },
+                        { ar: 'لا تحتوي على أي نقاط تقاطع مع المحاور', en: 'It has no intersection points with the axes' },
+                        { ar: 'قيمتها ثابتة دائماً بغض النظر عن x', en: 'Its value is always constant regardless of x' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الفهم المبدئي للقواعد يسهل فك وتبسيط المشاكل المركبة لاحقاً.",
-                        "en": "Initial understanding of rules facilitates unfolding and simplifying composite problems later."
-                    }
+                    correct: 0,
+                    answer: { ar: 'الدالة المحايدة f(x)=x تمر بجميع النقاط ذات الإحداثيات (a,a)', en: 'The identity function f(x)=x passes through all points with coordinates (a,a)' }
                 },
                 {
-                    "q": {
-                        "ar": "أي الرموز المصطلحية التالية ترتبط بـ التعرف على الدوال الأم الأصلية وخصائصها بشكل مباشر؟",
-                        "en": "Which of the following terminology symbols is directly associated with التعرف على الدوال الأم الأصلية وخصائصها?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الرموز المصطلحية المحددة لخصائص المجال والمدى والتقاربات",
-                            "en": "The specific terminology symbols defining domain, range, and asymptotes"
-                        },
-                        {
-                            "ar": "الرمز المعبر عن التغير اللحظي المتجه فقط",
-                            "en": "The symbol representing instantaneous vector change only"
-                        },
-                        {
-                            "ar": "الرمز المحدد لأصفار المقادير كثيرة الحدود الفردية",
-                            "en": "The symbol specifying zeros of odd polynomial expressions"
-                        },
-                        {
-                            "ar": "الرموز المصطلحية لتكامل وحساب المساحات السطحية",
-                            "en": "The terminology symbols for integration and surface area calculations"
-                        }
+                    q: { ar: 'ما المجال والمدى لدالة الجذر التربيعي الأصلية f(x)=√x؟', en: 'What are the domain and range of the parent square root function f(x)=√x?' },
+                    options: [
+                        { ar: 'المجال [0,∞) والمدى [0,∞)', en: 'Domain [0,∞) and range [0,∞)' },
+                        { ar: 'المجال (-∞,∞) والمدى (-∞,∞)', en: 'Domain (-∞,∞) and range (-∞,∞)' },
+                        { ar: 'المجال [0,∞) والمدى (-∞,∞)', en: 'Domain [0,∞) and range (-∞,∞)' },
+                        { ar: 'المجال (-∞,∞) والمدى [0,∞)', en: 'Domain (-∞,∞) and range [0,∞)' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "تستخدم الرموز الرياضية لتكثيف التعبير عن العلاقات المعقدة بوضوح.",
-                        "en": "Mathematical symbols are used to concisely express complex relations clearly."
-                    }
+                    correct: 0,
+                    answer: { ar: 'مجال دالة الجذر التربيعي هو [0,∞) والمدى أيضاً [0,∞)', en: 'The domain of the square root function is [0,∞), and the range is also [0,∞)' }
                 }
             ]
         },
         {
-            "title": {
-                "ar": "🔹 الجزء الثاني: الإزاحات الأفقية والرأسية (Translations)",
-                "en": "🔹 Part 2: الإزاحات الأفقية والرأسية (Translations)"
-            },
-            "questions": [
+            id: 'sec2',
+            title: { ar: '🔹 الجزء الثاني: الإزاحة الأفقية والرأسية', en: '🔹 Part 2: Horizontal & Vertical Translations' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "أوجد القيمة العددية الدقيقة للتعبير المرتبط بـ الإزاحات الأفقية والرأسية (Translations) عند التعويض بالقيم المرجعية؟",
-                        "en": "Find the exact numerical value of the expression associated with الإزاحات الأفقية والرأسية (Translations) upon reference substitution?"
-                    },
-                    "options": [
-                        {
-                            "ar": "القيمة العددية الدقيقة المحسوبة باتباع الترتيب الجبري الصارم للعمليات الحسابية",
-                            "en": "The exact numerical value calculated by following the strict algebraic order of operations"
-                        },
-                        {
-                            "ar": "قيمة تقريبية تقرب لأقرب جزء من عشرة آلاف",
-                            "en": "An approximate value rounded to the nearest ten-thousandth"
-                        },
-                        {
-                            "ar": "صفر دائم بسبب انعدام المقادير الفردية في المعادلة",
-                            "en": "Zero always due to the vanishing of odd expressions in the equation"
-                        },
-                        {
-                            "ar": "قيمة تخيلية تشتمل على المركب التخيلي المباشر i",
-                            "en": "An imaginary value comprising the direct imaginary unit i"
-                        }
+                    q: { ar: 'التمثيل البياني لـ g(x)=f(x)+k بالنسبة إلى f(x) يمثل:', en: 'Relative to f(x), what does the graph of g(x)=f(x)+k represent?' },
+                    options: [
+                        { ar: 'إزاحة رأسية بمقدار k وحدة لأعلى إذا كانت k>0', en: 'A vertical shift of k units up if k>0' },
+                        { ar: 'إزاحة أفقية بمقدار k وحدة لليمين', en: 'A horizontal shift of k units to the right' },
+                        { ar: 'انعكاساً حول المحور الأفقي x', en: 'A reflection across the horizontal axis x' },
+                        { ar: 'تمدداً رأسياً بمعامل k', en: 'A vertical stretch by a factor of k' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "التعويض الدقيق يعطي القيمة العددية الصحيحة الخالية من التقريب العشوائي.",
-                        "en": "Exact substitution gives the correct numerical value free from random approximation."
-                    }
+                    correct: 0,
+                    answer: { ar: 'التمثيل البياني لـ g(x)=f(x)+k هو التمثيل البياني لـ f(x) بعد إزاحته k وحدة لأعلى عند k>0، وk وحدة لأسفل عند k<0', en: 'The graph of g(x)=f(x)+k is the graph of f(x) shifted k units up when k>0, and k units down when k<0' }
                 },
                 {
-                    "q": {
-                        "ar": "ما هي النتيجة الصحيحة لتبسيط المقدار الرياضي الممثل لـ الإزاحات الأفقية والرأسية (Translations)؟",
-                        "en": "What is the correct result of simplifying the mathematical expression representing الإزاحات الأفقية والرأسية (Translations)?"
-                    },
-                    "options": [
-                        {
-                            "ar": "المقدار المبسط كلياً الذي يختزل جميع الحدود المتشابهة في صياغة واحدة",
-                            "en": "The fully simplified expression that reduces all like terms into a single formulation"
-                        },
-                        {
-                            "ar": "مقدار من الدرجة الثامنة يشتمل على معاملات غير صحيحة",
-                            "en": "An eighth-degree expression containing non-integer coefficients"
-                        },
-                        {
-                            "ar": "تعبير لا خطي يؤول دائماً لمالانهاية الموجبة والسالبة",
-                            "en": "A non-linear expression always leading to positive and negative infinity"
-                        },
-                        {
-                            "ar": "مقدار صفري ينعدم تماماً عند جميع النقاط الحقيقية",
-                            "en": "A zero expression that vanishes completely at all real points"
-                        }
+                    q: { ar: 'التمثيل البياني لـ g(x)=f(x-h) بالنسبة إلى f(x) يمثل:', en: 'Relative to f(x), what does the graph of g(x)=f(x-h) represent?' },
+                    options: [
+                        { ar: 'إزاحة أفقية بمقدار h وحدة لليمين إذا كانت h>0', en: 'A horizontal shift of h units to the right if h>0' },
+                        { ar: 'إزاحة رأسية بمقدار h وحدة لأعلى', en: 'A vertical shift of h units up' },
+                        { ar: 'انعكاساً حول المحور الرأسي y', en: 'A reflection across the vertical axis y' },
+                        { ar: 'تمدداً أفقياً بمعامل h', en: 'A horizontal stretch by a factor of h' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "تبسيط المقادير يسهل تحليل خصائصها ورسم منحنياتها بيانيا.",
-                        "en": "Simplifying expressions makes it easier to analyze their properties and graph them."
-                    }
+                    correct: 0,
+                    answer: { ar: 'التمثيل البياني لـ g(x)=f(x-h) هو التمثيل البياني لـ f(x) بعد إزاحته h وحدة لليمين عند h>0، وh وحدة لليسار عند h<0', en: 'The graph of g(x)=f(x-h) is the graph of f(x) shifted h units to the right when h>0, and h units to the left when h<0' }
                 },
                 {
-                    "q": {
-                        "ar": "إذا قمنا بالتعويض في دالة الإزاحات الأفقية والرأسية (Translations) بالمتغير المستقل المضاف، فما هو التعبير الناتج؟",
-                        "en": "If we substitute into the function of الإزاحات الأفقية والرأسية (Translations) with the shifted independent variable, what is the resulting expression?"
-                    },
-                    "options": [
-                        {
-                            "ar": "التعبير الجبري المزاح الذي يعكس التحويل المطلوب بدقة متناهية",
-                            "en": "The shifted algebraic expression that reflects the required transformation with absolute accuracy"
-                        },
-                        {
-                            "ar": "نفس التعبير الأصلي دون أي تغيير في المعاملات أو الأسس",
-                            "en": "The same original expression without any change in coefficients or exponents"
-                        },
-                        {
-                            "ar": "تعبير خطي بسيط يخلو من المتغير المستقل الأصلي",
-                            "en": "A simple linear expression devoid of the original independent variable"
-                        },
-                        {
-                            "ar": "مقدار غير معرف بسبب وقوع الصفر في مقام الكسر",
-                            "en": "An undefined expression due to zero occurring in the fraction's denominator"
-                        }
+                    q: { ar: 'بالنسبة للدالة g(x)=|x+3|، ماذا تمثل هذه الدالة بالنسبة إلى f(x)=|x|؟', en: 'For the function g(x)=|x+3|, what does it represent relative to f(x)=|x|?' },
+                    options: [
+                        { ar: 'إزاحة أفقية بمقدار 3 وحدات لليسار', en: 'A horizontal shift of 3 units to the left' },
+                        { ar: 'إزاحة أفقية بمقدار 3 وحدات لليمين', en: 'A horizontal shift of 3 units to the right' },
+                        { ar: 'إزاحة رأسية بمقدار 3 وحدات لأعلى', en: 'A vertical shift of 3 units up' },
+                        { ar: 'إزاحة رأسية بمقدار 3 وحدات لأسفل', en: 'A vertical shift of 3 units down' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "التعويض بالمتغير المزاح يعيد تشكيل الدالة لتعكس التحويل الهندسي الحاصل.",
-                        "en": "Substituting with a shifted variable reshapes the function to reflect the geometric transformation."
-                    }
+                    correct: 0,
+                    answer: { ar: 'الدالة g(x)=|x+3| تأخذ الصيغة g(x)=f(x-(-3))، وبالتالي فإن تمثيلها البياني يساوي تمثيل f(x)=|x| بعد إزاحته 3 وحدات لليسار', en: 'The function g(x)=|x+3| has the form g(x)=f(x-(-3)), so its graph equals the graph of f(x)=|x| shifted 3 units to the left' }
                 },
                 {
-                    "q": {
-                        "ar": "ما هي أصفار المعادلة أو نقاط الحل المرتبطة بـ الإزاحات الأفقية والرأسية (Translations)؟",
-                        "en": "What are the equation zeros or solution points associated with الإزاحات الأفقية والرأسية (Translations)?"
-                    },
-                    "options": [
-                        {
-                            "ar": "القيم العددية الدقيقة التي تحقق المعادلة وتجعل الدالة مساوية للصفر تماماً",
-                            "en": "The exact numerical values that satisfy the equation and make the function strictly equal to zero"
-                        },
-                        {
-                            "ar": "القيم السالبة فقط التي تقع ضمن فترات الاختبار غير الحقيقية",
-                            "en": "The negative values only that fall within non-real test intervals"
-                        },
-                        {
-                            "ar": "النقاط التي تتقاطع عندها الدالة مع خطوط التقارب المائلة",
-                            "en": "The points where the function intersects the oblique asymptotes"
-                        },
-                        {
-                            "ar": "أعداد حقيقية تزيد بمقدار الثابت التأسيسي للمحور الصادي",
-                            "en": "Real numbers shifted by the starting constant of the y-axis"
-                        }
+                    q: { ar: 'عند كتابة معادلة تتضمن إزاحة أفقية ورأسية معاً مثل g(x)=|x-2|-1 بالنسبة إلى f(x)=|x|، ما التفسير الصحيح؟', en: 'When writing an equation that combines a horizontal and vertical shift, like g(x)=|x-2|-1 relative to f(x)=|x|, what is the correct interpretation?' },
+                    options: [
+                        { ar: 'إزاحة بمقدار وحدتين لليمين ووحدة واحدة لأسفل', en: 'A shift of 2 units to the right and 1 unit down' },
+                        { ar: 'إزاحة بمقدار وحدتين لليسار ووحدة واحدة لأعلى', en: 'A shift of 2 units to the left and 1 unit up' },
+                        { ar: 'إزاحة بمقدار وحدة واحدة لليمين ووحدتين لأسفل', en: 'A shift of 1 unit to the right and 2 units down' },
+                        { ar: 'لا يوجد أي إزاحة في هذه الحالة', en: 'There is no shift at all in this case' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "أصفار الدالة هي الحلول الجبرية الدقيقة الناتجة عن تصفير المعادلة.",
-                        "en": "The zeros of a function are the exact algebraic solutions resulting from setting the equation to zero."
-                    }
+                    correct: 0,
+                    answer: { ar: 'الدالة g(x)=f(x-2)-1 تعني أن تمثيل g(x) يساوي تمثيل f(x)=|x| بعد إزاحته بمقدار وحدتين لليمين ووحدة واحدة لأسفل', en: 'The function g(x)=f(x-2)-1 means the graph of g(x) equals the graph of f(x)=|x| shifted 2 units to the right and 1 unit down' }
                 }
             ]
         },
         {
-            "title": {
-                "ar": "🔹 الجزء الثالث: الانعكاسات حول المحاور الإحداثية (Reflections)",
-                "en": "🔹 Part 3: الانعكاسات حول المحاور الإحداثية (Reflections)"
-            },
-            "questions": [
+            id: 'sec3',
+            title: { ar: '🔹 الجزء الثالث: الانعكاس وتغيير الأبعاد', en: '🔹 Part 3: Reflections & Dilations' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "ما هي المهارة الحسابية المتقدمة التي يجب تطبيقها لحل مشكلات الانعكاسات حول المحاور الإحداثية (Reflections)؟",
-                        "en": "What advanced calculation skill must be applied to solve problems of الانعكاسات حول المحاور الإحداثية (Reflections)?"
-                    },
-                    "options": [
-                        {
-                            "ar": "التحليل الجبري الشامل وتحديد الشروط والقيود المفروضة على المتغيرات بدقة",
-                            "en": "Comprehensive algebraic analysis and strictly defining the conditions and constraints on variables"
-                        },
-                        {
-                            "ar": "استبدال جميع الثوابت بقيم عشوائية لتجربتها بالاختيار المتعدد",
-                            "en": "Replacing all constants with random values to test them via multiple choice"
-                        },
-                        {
-                            "ar": "استخدام الآلة الحاسبة دون الحاجة لفهم الخطوات التفصيلية للحل",
-                            "en": "Using the calculator without needing to understand the detailed solution steps"
-                        },
-                        {
-                            "ar": "الاعتماد على التقريب الهندسي السريع للمنحنيات اللانهائية",
-                            "en": "Relying on quick geometric approximation of infinite curves"
-                        }
+                    q: { ar: 'التمثيل البياني لـ g(x)=-f(x) بالنسبة إلى f(x) يمثل:', en: 'Relative to f(x), what does the graph of g(x)=-f(x) represent?' },
+                    options: [
+                        { ar: 'انعكاساً حول المحور الأفقي x', en: 'A reflection across the horizontal axis x' },
+                        { ar: 'انعكاساً حول المحور الرأسي y', en: 'A reflection across the vertical axis y' },
+                        { ar: 'إزاحة رأسية لأسفل', en: 'A vertical shift downward' },
+                        { ar: 'تمدداً رأسياً بمعامل -1 دون أي انعكاس', en: 'A vertical stretch by a factor of -1 with no reflection' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "المهارات المتقدمة تشتمل على التحليل الرياضي المنطقي وتتبع الخطوات بدقة.",
-                        "en": "Advanced skills comprise logical mathematical analysis and tracking steps carefully."
-                    }
+                    correct: 0,
+                    answer: { ar: 'التمثيل البياني لـ g(x)=-f(x) هو التمثيل البياني لـ f(x) بعد انعكاسه حول المحور الأفقي x', en: 'The graph of g(x)=-f(x) is the graph of f(x) reflected across the horizontal axis x' }
                 },
                 {
-                    "q": {
-                        "ar": "كيف نتحقق من صحة الحل الجبري لـ الانعكاسات حول المحاور الإحداثية (Reflections)؟",
-                        "en": "How do we verify the validity of the algebraic solution for الانعكاسات حول المحاور الإحداثية (Reflections)?"
-                    },
-                    "options": [
-                        {
-                            "ar": "بالتعويض بالحلول في المعادلة الأصلية والتأكد من تحقيقها للتساوي أو الشرط",
-                            "en": "By substituting the solutions into the original equation and ensuring they satisfy the equality or condition"
-                        },
-                        {
-                            "ar": "بمقارنتها بالرسوم التوضيحية التقريبية لدروس أخرى مختلفة",
-                            "en": "By comparing them with approximate illustrations of other different lessons"
-                        },
-                        {
-                            "ar": "بافتراض أن جميع الحلول الناتجة صحيحة دون الحاجة لأي تحقق إضافي",
-                            "en": "By assuming all resulting solutions are correct without any additional verification"
-                        },
-                        {
-                            "ar": "عن طريق تحويل جميع القيم الحقيقية إلى أعداد مركبة تخيلية دائمأ",
-                            "en": "By transforming all real values into complex imaginary numbers always"
-                        }
+                    q: { ar: 'التمثيل البياني لـ g(x)=f(-x) بالنسبة إلى f(x) يمثل:', en: 'Relative to f(x), what does the graph of g(x)=f(-x) represent?' },
+                    options: [
+                        { ar: 'انعكاساً حول المحور الرأسي y', en: 'A reflection across the vertical axis y' },
+                        { ar: 'انعكاساً حول المحور الأفقي x', en: 'A reflection across the horizontal axis x' },
+                        { ar: 'إزاحة أفقية لليسار', en: 'A horizontal shift to the left' },
+                        { ar: 'تمدداً أفقياً', en: 'A horizontal stretch' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "التحقق من الحلول يضمن استبعاد الحلول الدخيلة والتأكد من دقة العمل الجبري.",
-                        "en": "Verifying solutions ensures excluding extraneous solutions and validating the algebraic work."
-                    }
+                    correct: 0,
+                    answer: { ar: 'التمثيل البياني لـ g(x)=f(-x) هو التمثيل البياني لـ f(x) بعد انعكاسه حول المحور الرأسي y', en: 'The graph of g(x)=f(-x) is the graph of f(x) reflected across the vertical axis y' }
                 },
                 {
-                    "q": {
-                        "ar": "ما هي الأخطاء الشائعة التي يجب تجنبها عند دراسة الانعكاسات حول المحاور الإحداثية (Reflections)؟",
-                        "en": "What are the common errors to avoid when studying الانعكاسات حول المحاور الإحداثية (Reflections)?"
-                    },
-                    "options": [
-                        {
-                            "ar": "إغفال قيود المجال وشروط المعرفات مثل تجنب الصفر في المقام أو المقادير السالبة تحت الجذر الزوجي",
-                            "en": "Overlooking domain constraints and defined conditions like avoiding zero in denominator or negative values under even roots"
-                        },
-                        {
-                            "ar": "كتابة الرموز الرياضية بخط اليد بدلاً من طباعتها بالحاسوب",
-                            "en": "Writing mathematical symbols by hand instead of typing them on a computer"
-                        },
-                        {
-                            "ar": "استخدام ورق الرسم البياني غير المسطر بدقة",
-                            "en": "Using graph paper that is not ruled with absolute precision"
-                        },
-                        {
-                            "ar": "اعتبار جميع الدوال الأسية دوال لوغاريتمية طبيعية دائماً",
-                            "en": "Considering all exponential functions as natural logarithmic functions always"
-                        }
+                    q: { ar: 'إذا كانت g(x)=a·f(x) حيث a>1، فماذا يحدث للتمثيل البياني لـ f(x)؟', en: 'If g(x)=a·f(x) where a>1, what happens to the graph of f(x)?' },
+                    options: [
+                        { ar: 'يتمدد (يتوسع) رأسياً بمعامل a', en: 'It stretches (expands) vertically by a factor of a' },
+                        { ar: 'ينكمش رأسياً بمعامل a', en: 'It compresses vertically by a factor of a' },
+                        { ar: 'يتمدد أفقياً بمعامل a', en: 'It stretches horizontally by a factor of a' },
+                        { ar: 'ينعكس حول المحور الأفقي x', en: 'It reflects across the horizontal axis x' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "تجنب الأخطاء الشائعة يحمي الطالب من ارتكاب هفوات حسابية تضيع صحة النواتج.",
-                        "en": "Avoiding common errors protects students from making computational slips that compromise results."
-                    }
+                    correct: 0,
+                    answer: { ar: 'إذا كان a عدداً حقيقياً موجباً حيث a>1، فإن التمثيل البياني لـ f(x) يتمدد (يتوسع) رأسياً في g(x)=a·f(x)', en: 'If a is a positive real number where a>1, the graph of f(x) stretches (expands) vertically in g(x)=a·f(x)' }
                 },
                 {
-                    "q": {
-                        "ar": "أي من الحالات التالية تعبر عن تطبيق متقدم لـ الانعكاسات حول المحاور الإحداثية (Reflections)؟",
-                        "en": "Which of the following cases expresses an advanced application of الانعكاسات حول المحاور الإحداثية (Reflections)?"
-                    },
-                    "options": [
-                        {
-                            "ar": "تحليل الأنظمة الديناميكية وحساب فترات الثبات ومعدلات التغير للمتغيرات المعقدة",
-                            "en": "Analyzing dynamic systems and calculating stability intervals and rates of change for complex variables"
-                        },
-                        {
-                            "ar": "رسم أشكال هندسية بسيطة كالمستطيلات والمربعات يدوياً",
-                            "en": "Drawing simple geometric shapes like rectangles and squares by hand"
-                        },
-                        {
-                            "ar": "حساب العمليات الحسابية الأساسية للجمع والطرح الحسابي البسيط",
-                            "en": "Calculating basic arithmetic operations for simple addition and subtraction"
-                        },
-                        {
-                            "ar": "استبدال نظام الأرقام العشري بنظام العد الثنائي الإلكتروني",
-                            "en": "Substituting the decimal number system with the binary electronic system"
-                        }
+                    q: { ar: 'إذا كانت g(x)=f(ax) حيث 0<a<1، فماذا يحدث للتمثيل البياني لـ f(x)؟', en: 'If g(x)=f(ax) where 0<a<1, what happens to the graph of f(x)?' },
+                    options: [
+                        { ar: 'يتمدد (يتوسع) أفقياً', en: 'It stretches (expands) horizontally' },
+                        { ar: 'ينكمش أفقياً', en: 'It compresses horizontally' },
+                        { ar: 'يتمدد رأسياً', en: 'It stretches vertically' },
+                        { ar: 'ينعكس حول المحور الرأسي y', en: 'It reflects across the vertical axis y' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "تطبيقات الدوال كثيرة ومتشعبة في مجالات العلوم والهندسة والنمذجة الرياضية.",
-                        "en": "Function applications are numerous and diverse in science, engineering, and mathematical modeling."
-                    }
+                    correct: 0,
+                    answer: { ar: 'إذا كان a عدداً حقيقياً موجباً حيث 0<a<1، فإن التمثيل البياني لـ f(x) يتمدد (يتوسع) أفقياً في g(x)=f(ax)', en: 'If a is a positive real number where 0<a<1, the graph of f(x) stretches (expands) horizontally in g(x)=f(ax)' }
                 }
             ]
         },
         {
-            "title": {
-                "ar": "🔹 الجزء الرابع: التمدد والانضغاط الأفقي والرأسي (Dilations)",
-                "en": "🔹 Part 4: التمدد والانضغاط الأفقي والرأسي (Dilations)"
-            },
-            "questions": [
+            id: 'sec4',
+            title: { ar: '🔹 الجزء الرابع: كتابة معادلات التحويلات والدوال المتعددة التعريف', en: '🔹 Part 4: Writing Transformation Equations & Piecewise Functions' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "كيف تستخدم التمدد والانضغاط الأفقي والرأسي (Dilations) في حل المسائل التطبيقية والعملية؟",
-                        "en": "How is التمدد والانضغاط الأفقي والرأسي (Dilations) used in solving applied and practical problems?"
-                    },
-                    "options": [
-                        {
-                            "ar": "بتحويل النص اللفظي للمشكلة إلى معادلة رياضية دقيقة وحلها وفقاً للأساليب الجبرية المعتمدة",
-                            "en": "By translating the verbal problem into an accurate mathematical equation and solving it using approved algebraic methods"
-                        },
-                        {
-                            "ar": "برسم مخططات تقريبية ملونة دون الالتزام بالقيم والبيانات الواردة في السؤال",
-                            "en": "By drawing colorful approximate charts without adhering to the values and data in the question"
-                        },
-                        {
-                            "ar": "بافتراض أن الحل دائماً يؤول للرقم عشرة أو الصفر لسهولة التدوين",
-                            "en": "By assuming the solution always leads to ten or zero for easy recording"
-                        },
-                        {
-                            "ar": "بالاعتماد على التجربة العملية المتكررة داخل المختبرات فقط",
-                            "en": "By relying on repeated physical experimentation in laboratories only"
-                        }
+                    q: { ar: 'لماذا يجب الانتباه لترتيب العمليات عند كتابة معادلة لدالة مزاحة ومنعكسة معاً؟', en: 'Why must one pay attention to the order of operations when writing an equation for a shifted and reflected function together?' },
+                    options: [
+                        { ar: 'لأن الترتيب يحدد ما إذا كان الانعكاس يشمل الإزاحة الرأسية أيضاً أم لا، مما ينتج تمثيلين بيانيين مختلفين', en: 'Because the order determines whether the reflection also includes the vertical shift or not, producing two different graphs' },
+                        { ar: 'لأن الترتيب لا يغير أي شيء في النتيجة النهائية إطلاقاً', en: 'Because the order does not change anything in the final result at all' },
+                        { ar: 'لأن اللوغاريتمات فقط تتأثر بالترتيب', en: 'Because only logarithms are affected by order' },
+                        { ar: 'لا علاقة للترتيب بكتابة معادلات التحويلات', en: 'Order has nothing to do with writing transformation equations' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "النمذجة الرياضية هي عملية تحويل الظواهر الحياتية إلى نماذج رياضية يمكن حلها وتحليلها.",
-                        "en": "Mathematical modeling is the process of converting real-world phenomena into mathematical models that can be solved and analyzed."
-                    }
+                    correct: 0,
+                    answer: { ar: 'عند كتابة معادلة لدالة مزاحة، يجب الانتباه إلى الإشارة إلى التحويلات بالشكل الصحيح؛ فالتمثيل البياني لـ -(√(x-1)+2) يختلف عن التمثيل البياني لـ -√(x-1)+2، لأن الترتيب يحدد ما إذا كان الانعكاس يشمل الإزاحة الرأسية أيضاً', en: 'When writing an equation for a shifted function, one must correctly indicate the transformations; the graph of -(√(x-1)+2) differs from the graph of -√(x-1)+2, since the order determines whether the reflection also includes the vertical shift' }
                 },
                 {
-                    "q": {
-                        "ar": "ما الأهمية العملية لدراسة التمدد والانضغاط الأفقي والرأسي (Dilations) في التخطيط واتخاذ القرارات؟",
-                        "en": "What is the practical importance of studying التمدد والانضغاط الأفقي والرأسي (Dilations) in planning and decision making?"
-                    },
-                    "options": [
-                        {
-                            "ar": "التنبؤ الدقيق بالقيم المستقبلية وتحديد الحدود القصوى والدنيا للمتغيرات المؤثرة كالأرباح والتكاليف",
-                            "en": "Accurately forecasting future values and determining maximum and minimum limits for influential variables like profits and costs"
-                        },
-                        {
-                            "ar": "الاستغناء الكامل عن الكوادر البشرية في مجالات الإحصاء الرياضي",
-                            "en": "Complete elimination of human personnel in mathematical statistics fields"
-                        },
-                        {
-                            "ar": "إثبات أن جميع المشاكل الحياتية يمكن تمثيلها بخطوط مستقيمة بسيطة دائماً",
-                            "en": "Proving that all real-life problems can always be represented by simple straight lines"
-                        },
-                        {
-                            "ar": "تقليص الفترات الزمنية اللازمة لتصنيع المنتجات بشكل يدوي",
-                            "en": "Reducing time intervals required for manufacturing products manually"
-                        }
+                    q: { ar: 'عند وصف الدالة g(x)=-x²+2 بالنسبة إلى f(x)=x²، ما التحويلات المطبقة؟', en: 'When describing g(x)=-x²+2 relative to f(x)=x², what transformations are applied?' },
+                    options: [
+                        { ar: 'انعكاس حول المحور الأفقي x مع إزاحة وحدتين لأعلى', en: 'A reflection across the horizontal axis x combined with a shift of 2 units up' },
+                        { ar: 'إزاحة وحدتين لليمين فقط', en: 'A shift of 2 units to the right only' },
+                        { ar: 'تمدد رأسي بمعامل 2 فقط', en: 'A vertical stretch by a factor of 2 only' },
+                        { ar: 'انعكاس حول المحور الرأسي y فقط', en: 'A reflection across the vertical axis y only' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "تساعد دراسة النماذج الرياضية في بناء خطط استراتيجية مستندة إلى تقديرات وتنبؤات علمية دقيقة.",
-                        "en": "Studying mathematical models helps build strategic plans based on highly accurate scientific estimates and forecasts."
-                    }
+                    correct: 0,
+                    answer: { ar: 'التمثيل البياني لـ g(x)=-x²+2 هو التمثيل البياني لـ f(x)=x² بعد انعكاسه حول المحور الأفقي x وإزاحته وحدتين لأعلى', en: 'The graph of g(x)=-x²+2 is the graph of f(x)=x² reflected across the horizontal axis x and shifted 2 units up' }
                 },
                 {
-                    "q": {
-                        "ar": "كيف يمثل سلوك التمدد والانضغاط الأفقي والرأسي (Dilations) بيانياً لتسهيل فهم وتفسير النتائج؟",
-                        "en": "How is the behavior of التمدد والانضغاط الأفقي والرأسي (Dilations) graphed to facilitate understanding and interpreting results?"
-                    },
-                    "options": [
-                        {
-                            "ar": "برسم منحنيات ناعمة ومستمرة تعكس خصائص الدالة وتظهر نقاط التقاطع والتماثل والتقارب بوضوح",
-                            "en": "By drawing smooth, continuous curves reflecting function properties, clearly showing intersections, symmetry, and asymptotes"
-                        },
-                        {
-                            "ar": "برسم مضلعات حادة الزوايا غير مستمرة على الإطلاق",
-                            "en": "By drawing sharp-angled polygons that are not continuous at all"
-                        },
-                        {
-                            "ar": "بتلوين المساحات المحصورة أسفل المنحنى بألوان زاهية مختلفة",
-                            "en": "By coloring the areas bounded below the curve with different bright colors"
-                        },
-                        {
-                            "ar": "بمحاكاة ثلاثية الأبعاد تعتمد على برمجيات التصميم المعماري الصرف",
-                            "en": "By 3D simulations relying purely on architectural design software"
-                        }
+                    q: { ar: 'في تمثيل دالة متعددة التعريف بيانياً، كيف تُحدد النقاط الحدية بين الفترات المختلفة؟', en: 'When graphing a piecewise function, how are the boundary points between the different intervals indicated?' },
+                    options: [
+                        { ar: 'تُرسم دائرة مفرغة عند القيمة غير المشمولة في الفترة، ونقطة ممتلئة عند القيمة المشمولة فيها', en: 'An open circle is drawn at the value not included in the interval, and a filled point at the value that is included' },
+                        { ar: 'تُرسم دائماً نقطة ممتلئة بغض النظر عن الشرط', en: 'A filled point is always drawn regardless of the condition' },
+                        { ar: 'تُرسم دائماً دائرة مفرغة بغض النظر عن الشرط', en: 'An open circle is always drawn regardless of the condition' },
+                        { ar: 'لا حاجة لتمييز النقاط الحدية إطلاقاً', en: 'There is no need to mark boundary points at all' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "التمثيل البياني يجسد سلوك الدوال المعقدة بطريقة بصرية سهلة القراءة والتحليل.",
-                        "en": "Graphing embodies the behavior of complex functions in a visual, easy-to-read, and analyze format."
-                    }
+                    correct: 0,
+                    answer: { ar: 'عند تمثيل دالة متعددة التعريف بيانياً، تُرسم دائرة مفرغة عند القيمة غير المشمولة في الفترة (شرط < أو >)، ونقطة ممتلئة عند القيمة المشمولة (شرط ≤ أو ≥)', en: 'When graphing a piecewise function, an open circle is drawn at a value excluded from the interval (< or > condition), and a filled point at a value included in it (≤ or ≥ condition)' }
                 },
                 {
-                    "q": {
-                        "ar": "أي مما يلي يمثل سيناريو عملي واقعي لتطبيق التمدد والانضغاط الأفقي والرأسي (Dilations)؟",
-                        "en": "Which of the following represents a realistic practical scenario for applying التمدد والانضغاط الأفقي والرأسي (Dilations)?"
-                    },
-                    "options": [
-                        {
-                            "ar": "حساب تغير درجات حرارة الغلاف الجوي أو حساب التكاثر البكتيري ونمو السكان والشركات عبر الزمن",
-                            "en": "Calculating atmospheric temperature variations or bacterial growth, population growth, and company expansion over time"
-                        },
-                        {
-                            "ar": "ترتيب الكتب في المكتبات المدرسية بناء على الحجم والوزن",
-                            "en": "Arranging books in school libraries based on size and weight"
-                        },
-                        {
-                            "ar": "تصنيف الحيوانات الأليفة في حدائق الحيوان بناء على فصائلها الحيوية",
-                            "en": "Classifying domestic animals in zoos based on their biological families"
-                        },
-                        {
-                            "ar": "حساب السرعة القصوى للقطارات البخارية القديمة في القرن التاسع عشر",
-                            "en": "Calculating the top speed of old steam trains in the nineteenth century"
-                        }
+                    q: { ar: 'عند إعادة كتابة دالة تربيعية بإكمال المربع لتحديد تحويلاتها من f(x)=x² (كما في مثال ركلة حرة في كرة القدم)، ما الهدف من هذه الخطوة؟', en: 'When rewriting a quadratic function by completing the square to identify its transformations from f(x)=x² (as in the free-kick example), what is the goal of this step?' },
+                    options: [
+                        { ar: 'تحويل الدالة إلى الصورة g(x)=a(x-h)²+k لتحديد الإزاحات وتغيير الأبعاد بوضوح', en: 'Converting the function into the form g(x)=a(x-h)²+k to clearly identify the shifts and dilation' },
+                        { ar: 'حذف الحد التربيعي كلياً من الدالة', en: 'Completely removing the quadratic term from the function' },
+                        { ar: 'جعل الدالة خطية تماماً', en: 'Making the function fully linear' },
+                        { ar: 'لا يوجد هدف رياضي واضح لهذه الخطوة', en: 'There is no clear mathematical goal for this step' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "تدخل هذه النماذج في دراسة وحل مشكلات النمو والتكاثر ونسب التغير في الطبيعة والصناعة.",
-                        "en": "These models are involved in studying and solving problems of growth, decay, and rates of change in nature and industry."
-                    }
+                    correct: 0,
+                    answer: { ar: 'الهدف من إعادة كتابة الدالة بالصورة g(x)=a(x-h)²+k من خلال إكمال المربع هو تحديد الإزاحات الأفقية والرأسية وتغيير الأبعاد بوضوح مقارنة بالدالة الأصلية f(x)=x²', en: 'The goal of rewriting the function as g(x)=a(x-h)²+k by completing the square is to clearly identify the horizontal and vertical shifts and the dilation compared to the parent function f(x)=x²' }
                 }
             ]
         },
         {
-            "title": {
-                "ar": "🔹 الجزء الخامس: تركيب التحويلات الهندسية وكتابة معادلاتها",
-                "en": "🔹 Part 5: تركيب التحويلات الهندسية وكتابة معادلاتها"
-            },
-            "questions": [
+            id: 'sec5',
+            title: { ar: '🔹 الجزء الخامس: التطبيقات الحياتية وتحويلات القيمة المطلقة', en: '🔹 Part 5: Real-Life Applications & Absolute Value Transformations' },
+            questions: [
                 {
-                    "q": {
-                        "ar": "ما هو التحدي الرياضي والتحليل المنطقي المرتبط بـ تركيب التحويلات الهندسية وكتابة معادلاتها؟",
-                        "en": "What is the mathematical challenge and logical analysis associated with تركيب التحويلات الهندسية وكتابة معادلاتها?"
-                    },
-                    "options": [
-                        {
-                            "ar": "الربط العميق بين الأساليب الجبرية والتطبيقات البيانية وإثبات صحة النظريات والحلول علمياً",
-                            "en": "Deeply connecting algebraic methods with graphical applications and scientifically proving theories and solutions"
-                        },
-                        {
-                            "ar": "حفظ جميع الصيغ الرياضية غيباً دون الحاجة لفهم كيفية استنتاجها أو تطبيقها",
-                            "en": "Memorizing all mathematical formulas by heart without needing to understand how they are derived or applied"
-                        },
-                        {
-                            "ar": "إثبات أن جميع العمليات الحسابية يمكن اختزالها بالجمع الرياضي البسيط",
-                            "en": "Proving that all mathematical operations can be reduced to simple addition"
-                        },
-                        {
-                            "ar": "تجاهل الشروط الخاصة بتماثل المنحنيات لتبسيط الحلول",
-                            "en": "Ignoring curve symmetry conditions to simplify solutions"
-                        }
+                    q: { ar: 'التحويل g(x)=|f(x)| بالنسبة إلى f(x) يؤثر على التمثيل البياني بـ:', en: 'Relative to f(x), how does the transformation g(x)=|f(x)| affect the graph?' },
+                    options: [
+                        { ar: 'عكس أي جزء من التمثيل البياني يقع أسفل المحور الأفقي x ليصبح فوقه', en: 'Reflecting any part of the graph below the horizontal axis x so it appears above it' },
+                        { ar: 'عكس أي جزء يقع يسار المحور الرأسي y', en: 'Reflecting any part to the left of the vertical axis y' },
+                        { ar: 'إزاحة كامل التمثيل البياني للأعلى', en: 'Shifting the entire graph upward' },
+                        { ar: 'عدم تغيير أي شيء في التمثيل البياني', en: 'Not changing anything in the graph' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "مهارات التفكير العليا تطلب الربط الواعي والفهم الشامل ومناقشة الحلول وبراهينها.",
-                        "en": "Higher-order thinking skills require conscious linking, comprehensive understanding, and discussing solutions and their proofs."
-                    }
+                    correct: 0,
+                    answer: { ar: 'يعكس هذا التحويل أي جزء من التمثيل البياني لـ f(x) يكون أسفل المحور الأفقي x بحيث يصبح فوق المحور الأفقي x', en: 'This transformation reflects any part of the graph of f(x) that lies below the horizontal axis x so that it appears above the horizontal axis x' }
                 },
                 {
-                    "q": {
-                        "ar": "كيف نبرهن بشكل منطقي صحة الحلول المقترحة لمشكلات تركيب التحويلات الهندسية وكتابة معادلاتها؟",
-                        "en": "How do we logically prove the validity of proposed solutions for تركيب التحويلات الهندسية وكتابة معادلاتها problems?"
-                    },
-                    "options": [
-                        {
-                            "ar": "باستخدام قوانين المنطق الرياضي والبراهين الجبرية المتعاقبة التي لا تقبل الشك",
-                            "en": "Using the laws of mathematical logic and sequential algebraic proofs that leave no room for doubt"
-                        },
-                        {
-                            "ar": "بأخذ رأي أغلبية الطلاب في الصف كمرجع لصحة الإجابة",
-                            "en": "By taking the opinion of the majority of classmates as a reference for the correct answer"
-                        },
-                        {
-                            "ar": "بمقارنتها بالحلول التقريبية للمقادير الهندسية في مجالات الفضاء",
-                            "en": "By comparing them with approximate solutions of geometric figures in space fields"
-                        },
-                        {
-                            "ar": "بافتراض أن جميع النماذج تتوافق تلقائياً مع الفرضيات الرياضية البسيطة",
-                            "en": "By assuming that all models automatically conform to simple mathematical hypotheses"
-                        }
+                    q: { ar: 'التحويل g(x)=f(|x|) بالنسبة إلى f(x) يؤثر على التمثيل البياني بـ:', en: 'Relative to f(x), how does the transformation g(x)=f(|x|) affect the graph?' },
+                    options: [
+                        { ar: 'استبدال الجزء الواقع يسار المحور الرأسي y بانعكاس الجزء الواقع يمينه', en: "Replacing the part to the left of the vertical axis y with a reflection of the part to its right" },
+                        { ar: 'عكس الجزء الواقع أسفل المحور الأفقي x', en: 'Reflecting the part below the horizontal axis x' },
+                        { ar: 'إزاحة التمثيل البياني لليمين', en: 'Shifting the graph to the right' },
+                        { ar: 'عدم تغيير أي شيء في التمثيل البياني', en: 'Not changing anything in the graph' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "البرهان الرياضي يقوم على التسلسل المنطقي والقوانين المثبتة سابقاً بعيداً عن العشوائية.",
-                        "en": "Mathematical proof is based on logical sequencing and previously proven laws, far from randomness."
-                    }
+                    correct: 0,
+                    answer: { ar: 'يؤدي هذا التحويل إلى استبدال جزء التمثيل البياني لـ f(x) الذي يقع على يسار المحور الرأسي y بانعكاس الجزء الذي يقع على يمين المحور الرأسي y', en: "This transformation replaces the part of f(x)'s graph to the left of the vertical axis y with a reflection of the part to the right of the vertical axis y" }
                 },
                 {
-                    "q": {
-                        "ar": "ما الذي يستنتجه الطالب المتميز بعد دراسته العميقة لـ تركيب التحويلات الهندسية وكتابة معادلاتها؟",
-                        "en": "What does an outstanding student conclude after a deep study of تركيب التحويلات الهندسية وكتابة معادلاتها?"
-                    },
-                    "options": [
-                        {
-                            "ar": "أن الرياضيات لغة متكاملة تصف الطبيعة بدقة وتوفر أدوات تحليل وحل لأعقد الظواهر المحيطة بنا",
-                            "en": "That mathematics is an integrated language describing nature accurately and providing tools to analyze and solve the most complex phenomena around us"
-                        },
-                        {
-                            "ar": "أن جميع المسائل الرياضية تم حلها سابقاً ولا حاجة للمزيد من الابتكار أو التطوير",
-                            "en": "That all mathematical problems have been solved previously and there is no need for further innovation or development"
-                        },
-                        {
-                            "ar": "أن النماذج الخطية كافية وحدها لتمثيل كل المتغيرات في الكون دون حاجة للنماذج اللاخطية",
-                            "en": "That linear models alone are sufficient to represent all variables in the universe without needing non-linear models"
-                        },
-                        {
-                            "ar": "أن دراسة الدوال تقتصر فائدتها على اجتياز الاختبارات المدرسية المحددة فقط",
-                            "en": "That studying functions is useful only for passing specific school examinations"
-                        }
+                    q: { ar: 'في مثال مسار ركلة حرة في كرة القدم الممثل بدالة تربيعية محولة من f(x)=x²، ماذا يمثل الإحداثي x=0 في السياق؟', en: "In the soccer free-kick trajectory example modeled from f(x)=x², what does x=0 represent in context?" },
+                    options: [
+                        { ar: 'نقطة معينة على أرض الملعب (مثل مسافة معينة من خط المرمى) وليس بالضرورة موضع الكرة نفسه', en: 'A specific point on the field (such as a certain distance from the goal line), not necessarily the ball’s own position' },
+                        { ar: 'لحظة انطلاق الكرة فقط بغض النظر عن الموقع', en: 'Only the moment the ball is kicked, regardless of location' },
+                        { ar: 'ارتفاع الكرة عن الأرض', en: "The ball's height above the ground" },
+                        { ar: 'سرعة الكرة عند الانطلاق', en: 'The ball’s speed at launch' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "الرياضيات هي أداة التفكير العلمي المنظم ولغة التطوير والابتكار التكنولوجي المستمر.",
-                        "en": "Mathematics is the tool of organized scientific thinking and the language of continuous technological development and innovation."
-                    }
+                    correct: 0,
+                    answer: { ar: 'في المسألة، يمثل x المسافة الأفقية بالمتر حيث تناظر x=0 نقطة محددة على أرض الملعب مثل مسافة معينة من خط مرمى صاحب الركلة الحرة', en: 'In the problem, x represents the horizontal distance in meters, where x=0 corresponds to a specific point on the field, such as a certain distance from the free-kick taker’s goal line' }
                 },
                 {
-                    "q": {
-                        "ar": "كيف يسهم التفكير الإبداعي في تطوير وتطبيق نماذج تركيب التحويلات الهندسية وكتابة معادلاتها؟",
-                        "en": "How does creative thinking contribute to developing and applying models of تركيب التحويلات الهندسية وكتابة معادلاتها?"
-                    },
-                    "options": [
-                        {
-                            "ar": "بابتكار طرق حل جديدة واختصار الخطوات الطويلة ودمج المعارف والربط بين حقول العلوم المختلفة",
-                            "en": "By innovating new solution methods, shortcutting long steps, merging knowledge, and linking different fields of science"
-                        },
-                        {
-                            "ar": "بتصميم واجهات ملونة وغير منظمة لتبديد رتابة الرسوم البيانية القديمة",
-                            "en": "By designing colorful, unorganized interfaces to break the monotony of old graphs"
-                        },
-                        {
-                            "ar": "بالتخلي عن القوانين الجبرية الصارمة واعتماد الحدس الرياضي المباشر فقط",
-                            "en": "By abandoning strict algebraic laws and relying solely on direct mathematical intuition"
-                        },
-                        {
-                            "ar": "باستبدال الأرقام بالرموز التعبيرية التفاعلية الممتعة",
-                            "en": "By replacing numbers with fun, interactive expressive emojis"
-                        }
+                    q: { ar: 'عند إعادة كتابة دالة تمثل ظاهرة حياتية لتعكس تغيير الموقع الأفقي لتنفيذ ركلة حرة من مسافة إلى أخرى، أي نوع من التحويلات الثابتة يُستخدم عادة؟', en: 'When rewriting a real-life function to reflect a change in the horizontal position of where a free kick is taken, what type of rigid transformation is typically used?' },
+                    options: [
+                        { ar: 'إزاحة أفقية تعكس التغير في المسافة', en: 'A horizontal shift reflecting the change in distance' },
+                        { ar: 'انعكاس حول المحور الرأسي y', en: 'A reflection across the vertical axis y' },
+                        { ar: 'تمدد رأسي بمعامل جديد', en: 'A vertical stretch by a new factor' },
+                        { ar: 'تغيير الدالة الأصلية بالكامل إلى نوع مختلف', en: 'Completely changing the parent function to a different type' }
                     ],
-                    "correct": 0,
-                    "answer": {
-                        "ar": "يسهم الإبداع في كسر الجمود الرياضي وتسهيل المعرفة وجعلها أكثر متعة وفائدة للبشرية.",
-                        "en": "Creativity contributes to breaking mathematical rigidity, facilitating knowledge, and making it more enjoyable and useful for humanity."
-                    }
+                    correct: 0,
+                    answer: { ar: 'تغيير موقع تنفيذ الركلة الحرة من مسافة إلى أخرى (مثلاً من 20 متر إلى 30 متر) هو إزاحة أفقية تعكس هذا التغيير في المسافة، وتُطبق بطرح أو جمع القيمة المناسبة داخل التعبير المربع', en: 'Changing the location where the free kick is taken from one distance to another (e.g., from 20m to 30m) is a horizontal shift reflecting this change in distance, applied by subtracting or adding the appropriate value inside the squared expression' }
                 }
             ]
         }
@@ -816,6 +444,8 @@ function prepareShuffledExam() {
             globalIdx++;
         });
     });
+    
+    console.log('✅ تم خلط الأسئلة والخيارات بنجاح');
 }
 
 function reshuffleExam() {
@@ -852,8 +482,8 @@ function setLanguage(lang) {
 function renderExam() {
     const container = document.getElementById('exam-content');
     const labels = {
-        ar: { option: ['أ', 'ب', 'ج', 'د'], answer: '✅ الإجابة الصحيحة:' },
-        en: { option: ['A', 'B', 'C', 'D'], answer: '✅ Correct Answer:' }
+        ar: { option: ['أ', 'ب', 'ج', 'د'], answer: '✅ الإجابة:' },
+        en: { option: ['A', 'B', 'C', 'D'], answer: '✅ Answer:' }
     };
     const lbl = labels[currentLang];
     const isRTL = currentLang === 'ar';
@@ -864,13 +494,13 @@ function renderExam() {
     examData.sections.forEach((section) => {
         html += `
         <section class="bg-white p-6 rounded-xl shadow-lg">
-            <h2 class="text-xl font-bold mb-4 text-teal-700">${section.title[currentLang]}</h2>
+            <h2 class="text-xl font-bold mb-4 text-rose-700">${section.title[currentLang]}</h2>
             <ol class="space-y-4 text-sm">`;
             
         section.questions.forEach((q) => {
             const borderSide = isRTL ? 'border-r-4 pr-4' : 'border-l-4 pl-4';
             html += `
-                <li class="${borderSide} border-teal-500 py-2" id="q-${globalIdx}">
+                <li class="${borderSide} border-rose-500 py-2" id="q-${globalIdx}">
                     <strong>${globalIdx + 1}.</strong> ${q.q[currentLang]}<br>`;
                     
             q.options.forEach((opt, oIdx) => {
@@ -935,17 +565,15 @@ function gradeExam() {
                 correctCount++;
                 li.classList.add('correct');
                 li.classList.remove('incorrect');
-            } else {
-                li.classList.add('incorrect');
-                li.classList.remove('correct');
-            }
-
-            if (isCorrect) {
+                
                 if (i < 4) sec1++;
                 else if (i < 8) sec2++;
                 else if (i < 12) sec3++;
                 else if (i < 16) sec4++;
                 else sec5++;
+            } else {
+                li.classList.add('incorrect');
+                li.classList.remove('correct');
             }
         }
     }
@@ -953,7 +581,7 @@ function gradeExam() {
     const score = (correctCount / 20) * 100;
     const successRate = Math.round(score);
     
-    document.getElementById('res-total').textContent = `${successRate} / 100`;
+    document.getElementById('res-total').textContent = `${Math.round(score)} / 100`;
     document.getElementById('res-name').textContent = document.getElementById('studentName').value || (currentLang === 'ar' ? 'طالب' : 'Student');
     document.getElementById('res-date').textContent = new Date().toLocaleDateString(currentLang === 'ar' ? 'ar-AE' : 'en-US');
     
@@ -998,85 +626,74 @@ function sendResultsToEmail() {
     const badge = document.getElementById('success-badge').textContent;
 
     const sectionNames = {
-        ar: [
-            "الجزء الأول: المفاهيم والقواعد الأساسية والتعريفات",
-            "الجزء الثاني: العمليات الحسابية والحلول العددية الدقيقة",
-            "الجزء الثالث: المهارات المتقدمة والتطبيقات والمسائل",
-            "الجزء الرابع: النمذجة الرياضية والتمثيل البياني والمسائل العملية",
-            "الجزء الخامس: مهارات التفكير العليا والتحليل والربط المنطقي"
-        ],
-        en: [
-            "Part 1: Basic Concepts, Rules, and Definitions",
-            "Part 2: Calculations and Exact Numerical Solutions",
-            "Part 3: Advanced Skills, Applications, and Problems",
-            "Part 4: Mathematical Modeling, Graphing, and Practical Problems",
-            "Part 5: Higher-Order Thinking, Analysis, and Logical Connections"
-        ]
+        ar: ['الدوال الأصلية وخصائصها', 'الإزاحة الأفقية والرأسية', 'الانعكاس وتغيير الأبعاد', 'كتابة معادلات التحويلات والدوال المتعددة التعريف', 'التطبيقات الحياتية وتحويلات القيمة المطلقة'],
+        en: ['Parent Functions & Their Properties', 'Horizontal & Vertical Translations', 'Reflections & Dilations', 'Writing Transformation Equations & Piecewise Functions', 'Real-Life Applications & Absolute Value Transformations']
     };
     const currentSectionNames = sectionNames[currentLang];
 
     let answersHTML = `
-        <div style="font-family: 'Segoe UI', Tahoma, Arial, sans-serif; direction: \${currentLang === 'ar' ? 'rtl' : 'ltr'}; text-align: \${currentLang === 'ar' ? 'right' : 'left'};">
-            <div style="background: linear-gradient(135deg, #0d9488, #0891b2); color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
-                <h2 style="margin: 0; font-size: 22px;">⚡ \${currentLang === 'ar' ? 'نتيجة امتحان الرياضيات والتحليل التفاعلي' : 'Math Interactive Exam Result'}</h2>
-                <p style="margin: 5px 0 0 0; opacity: 0.9;">\${currentLang === 'ar' ? 'رياضيات الصف الثاني عشر عام | الفصل الدراسي الأول' : 'Grade 12 General Math | Term 1'}</p>
-                <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.8;">🔀 \${currentLang === 'ar' ? 'تم خلط الأسئلة تلقائياً' : 'Questions were randomly shuffled'}</p>
+        <div style="font-family: 'Segoe UI', Tahoma, Arial, sans-serif; direction: ${currentLang === 'ar' ? 'rtl' : 'ltr'};">
+            <div style="background: linear-gradient(135deg, #e11d48, #db2777); color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
+                <h2 style="margin: 0; font-size: 22px;">🧮 ${currentLang === 'ar' ? 'نتيجة امتحان الدوال الأصلية والتحويلات' : 'Parent Functions & Transformations Exam Result'}</h2>
+                <p style="margin: 5px 0 0 0; opacity: 0.9;">${currentLang === 'ar' ? 'Parent Functions & Transformations' : 'Parent Functions & Transformations'}</p>
+                <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.8;">🔀 ${currentLang === 'ar' ? 'تم خلط الأسئلة تلقائياً' : 'Questions were randomly shuffled'}</p>
             </div>
             
-            <div style="background: #f0fdfa; padding: 15px; border: 1px solid #99f6e4;">
+            <div style="background: #fff1f2; padding: 15px; border: 1px solid #fecdd3;">
                 <table style="width: 100%; border-collapse: collapse;">
                     <tr>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '👤 الاسم:' : '👤 Name:'}</td>
-                        <td style="padding: 8px;">\${name}</td>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '🏫 الشعبة:' : '🏫 Class:'}</td>
-                        <td style="padding: 8px;">\${studentClass}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #be123c;">${currentLang === 'ar' ? '👤 الاسم:' : '👤 Name:'}</td>
+                        <td style="padding: 8px;">${name}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #be123c;">${currentLang === 'ar' ? '🏫 الشعبة:' : '🏫 Class:'}</td>
+                        <td style="padding: 8px;">${studentClass}</td>
                     </tr>
                     <tr>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '📅 التاريخ:' : '📅 Date:'}</td>
-                        <td style="padding: 8px;">\${date}</td>
-                        <td style="padding: 8px; font-weight: bold; color: #0f766e;">\${currentLang === 'ar' ? '🏆 التقدير:' : '🏆 Grade:'}</td>
-                        <td style="padding: 8px;">\${badge}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #be123c;">${currentLang === 'ar' ? '📅 التاريخ:' : '📅 Date:'}</td>
+                        <td style="padding: 8px;">${date}</td>
+                        <td style="padding: 8px; font-weight: bold; color: #be123c;">${currentLang === 'ar' ? '🏆 التقدير:' : '🏆 Grade:'}</td>
+                        <td style="padding: 8px;">${badge}</td>
                     </tr>
                 </table>
             </div>
 
             <div style="background: white; padding: 20px; text-align: center; border-bottom: 2px solid #e5e7eb;">
                 <div style="display: inline-block; margin: 0 15px;">
-                    <div style="font-size: 32px; font-weight: bold; color: #0d9488;">\${score}</div>
-                    <div style="color: #6b7280; font-size: 13px;">\${currentLang === 'ar' ? 'الدرجة الكلية' : 'Total Score'}</div>
+                    <div style="font-size: 32px; font-weight: bold; color: #e11d48;">${score}</div>
+                    <div style="color: #6b7280; font-size: 13px;">${currentLang === 'ar' ? 'الدرجة الكلية' : 'Total Score'}</div>
                 </div>
                 <div style="display: inline-block; margin: 0 15px;">
-                    <div style="font-size: 32px; font-weight: bold; color: #059669;">\${successRate}%</div>
-                    <div style="color: #6b7280; font-size: 13px;">\${currentLang === 'ar' ? 'نسبة النجاح' : 'Success Rate'}</div>
+                    <div style="font-size: 32px; font-weight: bold; color: #059669;">${successRate}%</div>
+                    <div style="color: #6b7280; font-size: 13px;">${currentLang === 'ar' ? 'نسبة النجاح' : 'Success Rate'}</div>
                 </div>
             </div>
 
             <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db;">
-                \${currentLang === 'ar' ? '📝 تفاصيل الإجابات' : '📝 Answer Details'}
+                📝 ${currentLang === 'ar' ? 'تفاصيل الإجابات' : 'Answer Details'}
             </h3>
             <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
                 <thead>
-                    <tr style="background: #0d9488; color: white;">
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 8%;">#</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 32%;">\${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">\${currentLang === 'ar' ? 'الإجابة' : 'Answer'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">\${currentLang === 'ar' ? 'الصحيحة' : 'Correct'}</th>
-                        <th style="padding: 10px; border: 1px solid #0b7d73; width: 15%;">\${currentLang === 'ar' ? 'النتيجة' : 'Status'}</th>
+                    <tr style="background: #e11d48; color: white;">
+                        <th style="padding: 10px; border: 1px solid #be123c; width: 8%;">#</th>
+                        <th style="padding: 10px; border: 1px solid #be123c; width: 32%;">${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
+                        <th style="padding: 10px; border: 1px solid #be123c; width: 15%;">${currentLang === 'ar' ? 'الإجابة' : 'Answer'}</th>
+                        <th style="padding: 10px; border: 1px solid #be123c; width: 15%;">${currentLang === 'ar' ? 'الصحيحة' : 'Correct'}</th>
+                        <th style="padding: 10px; border: 1px solid #be123c; width: 15%;">${currentLang === 'ar' ? 'النتيجة' : 'Status'}</th>
                     </tr>
                 </thead>
                 <tbody>
     `;
 
-    let sectionScores = [sec1, sec2, sec3, sec4, sec5];
+    let sectionScores = [0, 0, 0, 0, 0];
     let sectionTotals = [4, 4, 4, 4, 4];
 
     for (let i = 0; i < 20; i++) {
-        const selected = document.querySelector(`input[name="q\${i}"]:checked`);
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
         const selectedValue = selected ? selected.value : '-';
         const correctValue = correctAnswersMap[i];
         const isCorrect = selectedValue === correctValue;
         
         const sectionIndex = Math.floor(i / 4);
+        if (isCorrect) sectionScores[sectionIndex]++;
 
         const rowBg = i % 2 === 0 ? '#f9fafb' : '#ffffff';
         const statusBg = isCorrect ? '#dcfce7' : '#fee2e2';
@@ -1087,13 +704,13 @@ function sendResultsToEmail() {
             : (currentLang === 'ar' ? 'خطأ' : 'Wrong');
 
         answersHTML += `
-            <tr style="background: \${rowBg};">
-                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold;">\${i + 1}</td>
-                <td style="padding: 8px; border: 1px solid #e5e7eb;">\${currentSectionNames[sectionIndex]}</td>
-                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold;">\${selectedValue.toUpperCase()}</td>
-                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #059669;">\${correctValue.toUpperCase()}</td>
-                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; background: \${statusBg}; color: \${statusColor}; font-weight: bold;">
-                    \${statusIcon} \${statusText}
+            <tr style="background: ${rowBg};">
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold;">${i + 1}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb;">${currentSectionNames[sectionIndex]}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold;">${selectedValue.toUpperCase()}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #059669;">${correctValue.toUpperCase()}</td>
+                <td style="padding: 8px; border: 1px solid #e5e7eb; text-align: center; background: ${statusBg}; color: ${statusColor}; font-weight: bold;">
+                    ${statusIcon} ${statusText}
                 </td>
             </tr>
         `;
@@ -1103,15 +720,15 @@ function sendResultsToEmail() {
                 </tbody>
             </table>
 
-            <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db; border-top: 3px solid #0d9488;">
-                📊 \${currentLang === 'ar' ? 'تفصيل الأداء' : 'Performance Breakdown'}
+            <h3 style="background: #f3f4f6; padding: 12px; margin: 0; color: #1f2937; border-bottom: 2px solid #d1d5db; border-top: 3px solid #e11d48;">
+                📊 ${currentLang === 'ar' ? 'تفصيل الأداء' : 'Performance Breakdown'}
             </h3>
             <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
                 <thead>
-                    <tr style="background: #7c3aed; color: white;">
-                        <th style="padding: 10px; border: 1px solid #6d28d9;">\${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
-                        <th style="padding: 10px; border: 1px solid #6d28d9; width: 20%;">\${currentLang === 'ar' ? 'النتيجة' : 'Score'}</th>
-                        <th style="padding: 10px; border: 1px solid #6d28d9; width: 20%;">\${currentLang === 'ar' ? 'النسبة' : 'Percentage'}</th>
+                    <tr style="background: #db2777; color: white;">
+                        <th style="padding: 10px; border: 1px solid #be185d;">${currentLang === 'ar' ? 'القسم' : 'Section'}</th>
+                        <th style="padding: 10px; border: 1px solid #be185d; width: 20%;">${currentLang === 'ar' ? 'النتيجة' : 'Score'}</th>
+                        <th style="padding: 10px; border: 1px solid #be185d; width: 20%;">${currentLang === 'ar' ? 'النسبة' : 'Percentage'}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1123,16 +740,16 @@ function sendResultsToEmail() {
         const rowBg = i % 2 === 0 ? '#f9fafb' : '#ffffff';
         
         answersHTML += `
-            <tr style="background: \${rowBg};">
-                <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: 600;">\${currentSectionNames[i]}</td>
-                <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #0d9488;">
-                    \${sectionScores[i]} / \${sectionTotals[i]}
+            <tr style="background: ${rowBg};">
+                <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: 600;">${currentSectionNames[i]}</td>
+                <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center; font-weight: bold; color: #e11d48;">
+                    ${sectionScores[i]} / ${sectionTotals[i]}
                 </td>
                 <td style="padding: 10px; border: 1px solid #e5e7eb;">
                     <div style="background: #e5e7eb; border-radius: 10px; overflow: hidden; height: 20px; position: relative;">
-                        <div style="background: \${barColor}; width: \${percentage}%; height: 100%;"></div>
-                        <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 12px; font-weight: bold; color: #1f2937;">
-                            \${percentage}%
+                        <div style="background: ${barColor}; width: ${percentage}%; height: 100%;"></div>
+                        <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 11px; font-weight: bold; color: #1f2937;">
+                            ${percentage}%
                         </span>
                     </div>
                 </td>
@@ -1146,8 +763,8 @@ function sendResultsToEmail() {
 
             <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 15px; border-radius: 0 0 10px 10px; border-top: 2px solid #f59e0b;">
                 <p style="margin: 0; color: #78350f; text-align: center; font-size: 13px;">
-                    💡 <strong>\${currentLang === 'ar' ? 'ملاحظة:' : 'Note:'}</strong> 
-                    \${currentLang === 'ar' 
+                    💡 <strong>${currentLang === 'ar' ? 'ملاحظة:' : 'Note:'}</strong> 
+                    ${currentLang === 'ar' 
                         ? 'تم إرسال هذا التقرير تلقائياً من منصة 4U التعليمية | Mr. Mohammed Hesham' 
                         : 'This report was automatically sent from 4U Educational Platform | Mr. Mohammed Hesham'}
                 </p>
